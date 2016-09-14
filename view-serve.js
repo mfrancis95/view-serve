@@ -13,7 +13,7 @@ function middleware(directory, locals) {
                 next();
             }
             else {
-                response.render(file, locals[view]);
+                response.render(file, typeof locals === "object" ? locals[view] : require(locals)[view]);
             }
         });
     };
