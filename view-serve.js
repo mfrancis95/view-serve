@@ -2,13 +2,13 @@ var fs = require("fs");
 var path = require("path");
 
 function middleware(directory, locals) {
-    return function(request, response, next) {
+    return (request, response, next) => {
         var view = request.url.slice(1);
         if (!view) {
             view = "index";
         }
         var file = path.join(directory, view);
-        fs.stat(path.join(request.app.get("views"), directory, view + ".ejs"), function(error) {
+        fs.stat(path.join(request.app.get("views"), directory, view + ".ejs"), error => {
             if (error) {
                 next();
             }
