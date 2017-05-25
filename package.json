@@ -1,0 +1,9 @@
+{
+  "name": "view-serve",
+  "version": "1.0.0",
+  "main": "view-serve.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mfrancis95/view-serve.git"
+  }
+}

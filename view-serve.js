@@ -1,14 +1,14 @@
-var fs = require("fs");
-var path = require("path");
+const fs = require("fs");
+const path = require("path");
 
 function middleware(directory, locals) {
     return (request, response, next) => {
-        var view = request.url.slice(1);
+        let view = request.url.slice(1);
         if (!view) {
             view = "index";
         }
-        var file = path.join(directory, view);
-        fs.stat(path.join(request.app.get("views"), directory, view + ".ejs"), error => {
+        const file = path.join(directory, view);
+        fs.stat(path.join(request.app.get("views"), directory, view + "." + request.app.get("view engine")), error => {
             if (error) {
                 next();
             }
